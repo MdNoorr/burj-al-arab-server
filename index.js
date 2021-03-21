@@ -14,14 +14,14 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// const admin = require("firebase-admin");
+const admin = require("firebase-admin");
 
-// var serviceAccount = require("./configs/burj-al-arab-c8679-firebase-adminsdk-lrbuf-32893bffb1.json");
+var serviceAccount = require("./configs/burj-al-arab-c8679-firebase-adminsdk-lrbuf-32893bffb1.json");
 
-// admin.initializeApp({
-//   credential: admin.credential.cert(serviceAccount),
-//   databaseURL: process.env.FIREBASE_URL
-// });
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: process.env.FIREBASE_URL
+});
 
 
 const client = new MongoClient(uri, {
